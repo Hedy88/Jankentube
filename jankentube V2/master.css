@@ -40,8 +40,16 @@ div.vidlooker {
     text-align: center;
  }
 
+ 
  div.sys42 {
   text-align: center;
   font-family: Verdana, sans-serif;
   color: black;
  }
+
+ div.verification {
+  text-align: center;
+  font-family: Verdana, sans-serif;
+  color: rgb(255, 136, 0);
+ }
+
