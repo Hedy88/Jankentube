@@ -166,3 +166,24 @@ body {
     width:646.38px
    }
 
+   .benifits-outer-front {
+    border:1px solid #999;
+    padding:5px;
+    border:1px solid #999;
+    padding:5px;
+    height:40px
+   }
+   .benifits-inner-front {
+    border:1px solid #ccc;
+    padding:4px;
+    background-color:#eee;
+    text-align:center;
+    border:1px solid #ccc;
+    padding:4px;
+    background-color:#eee;
+    text-align:center;
+    float:left;
+    width:287px;
+    margin-top:-16.5px
+   }
+
