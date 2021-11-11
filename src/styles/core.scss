@@ -1,0 +1,105 @@
+body {
+    background-color: #eaeaea;
+    margin: 0 auto;
+    padding: 10px;
+    width: 970px;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans",
+        "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed",
+        "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue",
+        Helvetica, Arial, sans-serif;
+    background: transparent;
+}
+
+p,
+button {
+    font-size: 13px;
+}
+
+a {
+    color: #666;
+    font-weight: bold;
+    text-decoration: 0;
+
+    &:hover {
+        text-decoration: underline;
+    }
+    &:focus {
+        outline: 1px dotted #666;
+    }
+}
+
+button:focus {
+    outline: 1 px solid #999;
+}
+.btn {
+    color: #555;
+    height: 2.95em;
+    padding: 0 0.91em;
+    border: solid 1px;
+    border-color: #ccc #ccc #aaa;
+    text-shadow: 0 1px 0 white;
+    box-shadow: inset 0 0 1px white;
+    outline: 0;
+    font-weight: bold;
+    white-space: nowrap;
+    word-wrap: normal;
+    cursor: pointer;
+    overflow: visible;
+    border-radius: 2px;
+
+    &:hover {
+        border-color: #aaa #aaa #999;
+        box-shadow: 0 1px 2px rgb(0 0 0 / 25%), inset 0 0 3px white;
+        background-image: linear-gradient(to bottom, #f0f0f0 0, #e6e6e6 100%);
+    }
+    &:focus {
+        border-color: #4496e7;
+        box-shadow: 0 0 5px #4496e7, inset 0 0 10px white;
+    }
+    &:active {
+        border-color: #888 #aaa #ccc;
+        box-shadow: inset 0 1px 5px rgb(0 0 0 / 25%), 0 1px 0 white;
+        background-image: linear-gradient(to bottom, #c8c8c8 0, #e6e6e6 100%);
+    }
+}
+.btn.text {
+    text-shadow: 0 1px 0 white;
+    border-color: transparent;
+    background: none;
+    box-shadow: none;
+}
+.btn.dark {
+    color: white;
+    background-color: #454545;
+    border-color: #151515 #151515 #000;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 1px 0 rgba(256, 256, 256, 0.1);
+    background-image: linear-gradient(to bottom, #383838 0, #151515 100%);
+
+    &:hover {
+        border-color: #111 #111 #000;
+        background-color: #333;
+        box-shadow: inset 0 1px 0 rgba(256, 256, 256, 0.1),
+            0 1px 3px rgba(0, 0, 0, 0.5);
+        background-image: linear-gradient(to bottom, #383838 0, #252525 100%);
+    }
+    &:focus {
+        background-color: #454545;
+        border-color: #151515 #151515 #000;
+        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+        box-shadow: inset 0 1px 0 rgba(256, 256, 256, 0.1);
+        background-image: linear-gradient(to bottom, #383838 0, #151515 100%);
+    }
+    &:active {
+        border-color: #666;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.75);
+    }
+}
