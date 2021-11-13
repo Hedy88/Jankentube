@@ -14,28 +14,62 @@ const checkPath = (path) => {
     return path;
 };
 
-const navigate = (page) => {
+const urlExists = (url, callback) => {
+    $.ajax({
+        type: "HEAD",
+        url: url,
+        success: () => {
+            callback(true);
+        },
+        error: () => {
+            callback(false);
+        },
+    });
+};
+
+const navigate = (page, error = false) => {
     page = checkPath(page);
-    root.load(pagesDir + page, () => {
-        root.children("a").on("click", function () {
-            var path = $(this).attr("href");
-            path = checkPath(path);
-            if (path == "/index.html") {
-                path = "/";
+    const unclickable = () => {
+        $("a").attr("onclick", "return false;");
+    };
+    unclickable();
+    urlExists(pagesDir + page, (exists) => {
+        if (exists) {
+            if (!error) {
+                $("#dy-header").load(pagesDir + "/_header.html");
             }
-            var historyPath = path;
-            if (historyPath.endsWith(".html")) {
-                historyPath = historyPath.slice(0, -5);
-                console.log(historyPath);
-            }
-            window.history.pushState(
-                {},
-                historyPath,
-                window.location.origin + historyPath
-            );
-            navigate(path);
-            return false;
-        });
+            root.load(pagesDir + page, () => {
+                unclickable();
+                $("a").on("click", () => {
+                    var path = $(this).attr("href");
+                    path = checkPath(path);
+                    if (path == "/index.html") {
+                        path = "/";
+                    }
+                    var historyPath = path;
+                    if (historyPath.endsWith(".html")) {
+                        historyPath = historyPath.slice(0, -5);
+                    }
+                    window.history.pushState(
+                        {},
+                        historyPath,
+                        window.location.origin + historyPath
+                    );
+                    urlExists(path, (exists) => {
+                        if (exists) {
+                            navigate(path);
+                        } else {
+                            navigate("/_404.html");
+                        }
+                    });
+                });
+                if (error) {
+                    $("#err-header").load(pagesDir + "/_header.html");
+                }
+            });
+        } else {
+            navigate("/_404.html", true);
+        }
     });
 };
 

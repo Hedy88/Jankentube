@@ -1,2 +1,27 @@
 @use "./core.scss";
-@use "./pages.scss";
+@use "./icons.scss";
+
+#dy-header,
+#err-header {
+    display: flex;
+    $lp: 10px;
+
+    .logo {
+        margin: $lp;
+    }
+
+    .search-container {
+        width: 100%;
+        $c: $lp + 3px;
+        padding: $c 5px $c 5px;
+    }
+}
+
+.error-page-container {
+    text-align: center;
+    width: 400px;
+}
+
+#err-header .tibox {
+    width: 75%;
+}

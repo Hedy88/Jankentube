@@ -2,7 +2,8 @@ body {
     background-color: #eaeaea;
     margin: 0 auto;
     padding: 10px;
-    width: 970px;
+    padding-bottom: 0;
+    max-width: 970px;
 }
 
 *,
@@ -25,7 +26,6 @@ button {
 
 a {
     color: #666;
-    font-weight: bold;
     text-decoration: 0;
 
     &:hover {
@@ -70,13 +70,13 @@ button:focus {
         background-image: linear-gradient(to bottom, #c8c8c8 0, #e6e6e6 100%);
     }
 }
-.btn.text {
+.btn-text {
     text-shadow: 0 1px 0 white;
     border-color: transparent;
     background: none;
     box-shadow: none;
 }
-.btn.dark {
+.btn-dark {
     color: white;
     background-color: #454545;
     border-color: #151515 #151515 #000;
@@ -101,5 +101,49 @@ button:focus {
     &:active {
         border-color: #666;
         box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.75);
+    }
+}
+
+.textbox {
+    padding: 2px 6px;
+    margin: 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 2px #eee;
+    transition: border-color 0.2s ease;
+
+    &:hover,
+    &:focus {
+        border: 1px solid #b9b9b9;
+        border-top-color: #a0a0a0;
+        box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    &:focus {
+        border: 1px solid #1c62b9;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+        -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+        outline: none;
+    }
+}
+
+.ti-container {
+    display: flex;
+
+    .tibox {
+        width: 100%;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+
+    .btn-ti {
+        height: 100%;
+        border-left: 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
     }
 }
