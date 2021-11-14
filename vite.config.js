@@ -1,5 +1,6 @@
-import legacy from "@vitejs/plugin-legacy";
 import { defineConfig } from "vite";
+import legacy from "@vitejs/plugin-legacy";
+import eslintPlugin from "vite-plugin-eslint";
 
 export default defineConfig({
     root: "./src",
@@ -7,5 +8,6 @@ export default defineConfig({
         legacy({
             targets: ["defaults", "not IE 11"],
         }),
+        eslintPlugin(),
     ],
 });

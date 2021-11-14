@@ -4,22 +4,11 @@ import "./styles/index.scss";
 const root = $("#app");
 const pagesDir = "pages";
 
-const checkPath = (path) => {
-    if (!path.startsWith("/")) {
-        path = "/" + path;
-    }
-    if (path == "/") {
-        path = "/index.html";
-    }
-    return path;
-};
-
 const urlExists = (url, callback) => {
     $.ajax({
         type: "GET",
         url: url,
         success: () => {
-            console.log();
             callback(true);
         },
         error: () => {
@@ -28,46 +17,15 @@ const urlExists = (url, callback) => {
     });
 };
 
-const navigate = (page, error = false) => {
-    page = checkPath(page);
-    const unclickable = () => {
-        $("a").attr("onclick", "return false;");
-    };
-    unclickable();
-    urlExists(pagesDir + page, (exists) => {
-        console.log(page, exists);
-        if (exists) {
-            if (!error) {
-                $("#dy-header").load(pagesDir + "/_header.html");
-            }
-            root.load(pagesDir + page, () => {
-                unclickable();
-                $("a").on("click", () => {
-                    var path = $("a").attr("href");
-                    path = checkPath(path);
-                    if (path == "/index.html") {
-                        path = "/";
-                    }
-                    var historyPath = path;
-                    if (historyPath.endsWith(".html")) {
-                        historyPath = historyPath.slice(0, -5);
-                    }
-                    window.history.pushState(
-                        {},
-                        historyPath,
-                        window.location.origin + historyPath
-                    );
-                    navigate(path);
-                });
-                if (error) {
-                    $("#err-header").load(pagesDir + "/_header.html");
-                }
-            });
-        } else {
-            navigate("/_404.html", true);
-        }
-    });
-};
+// const navigate = (url, error = false) => {
+
+// };
+
+// window.history.pushState(
+//     {},
+//     historyPath,
+//     window.location.origin + historyPath
+// );
 
 if (window.location.pathname == "/") {
     navigate("/index.html");
