@@ -17,9 +17,30 @@ const urlExists = (url, callback) => {
     });
 };
 
-// const navigate = (url, error = false) => {
-
-// };
+const navigate = (url, byRouter = false) => {
+    if (url == "/") {
+        url == "/index.html";
+    }
+    if (!url.endsWith(".html")) {
+        url += ".html";
+    }
+    if (!url.startsWith("/")) {
+        url = "/" + url;
+    }
+    urlExists(url, (exists) => {
+        if (exists && (!url.includes("/_") || byRouter)) {
+            root.load(pagesDir + url, () => {
+                $("a").on("click", (e) => {
+                    var link = $(e.target);
+                    console.log(link);
+                    return false;
+                });
+            });
+        } else {
+            navigate("/_404.html", true);
+        }
+    });
+};
 
 // window.history.pushState(
 //     {},
