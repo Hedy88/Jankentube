@@ -1,82 +1,82 @@
-import $ from "jquery"
-import "./styles/index.scss"
+import $ from "jquery";
+import "./styles/index.scss";
 
-const root = $("#app")
-const pagesDir = "pages"
+const root = $("#app");
+const pagesDir = "pages";
 
 const checkPath = (path) => {
     if (!path.startsWith("/")) {
-        path = "/" + path
+        path = "/" + path;
     }
     if (path == "/") {
-        path = "/index.html"
+        path = "/index.html";
     }
-    return path
-}
+    return path;
+};
 
 const urlExists = (url, callback) => {
     $.ajax({
         type: "GET",
         url: url,
         success: () => {
-            console.log()
-            callback(true)
+            console.log();
+            callback(true);
         },
         error: () => {
-            callback(false)
+            callback(false);
         },
-    })
-}
+    });
+};
 
 const navigate = (page, error = false) => {
-    page = checkPath(page)
+    page = checkPath(page);
     const unclickable = () => {
-        $("a").attr("onclick", "return false;")
-    }
-    unclickable()
+        $("a").attr("onclick", "return false;");
+    };
+    unclickable();
     urlExists(pagesDir + page, (exists) => {
-        console.log(page, exists)
+        console.log(page, exists);
         if (exists) {
             if (!error) {
-                $("#dy-header").load(pagesDir + "/_header.html")
+                $("#dy-header").load(pagesDir + "/_header.html");
             }
             root.load(pagesDir + page, () => {
-                unclickable()
+                unclickable();
                 $("a").on("click", () => {
-                    var path = $("a").attr("href")
-                    path = checkPath(path)
+                    var path = $("a").attr("href");
+                    path = checkPath(path);
                     if (path == "/index.html") {
-                        path = "/"
+                        path = "/";
                     }
-                    var historyPath = path
+                    var historyPath = path;
                     if (historyPath.endsWith(".html")) {
-                        historyPath = historyPath.slice(0, -5)
+                        historyPath = historyPath.slice(0, -5);
                     }
                     window.history.pushState(
                         {},
                         historyPath,
                         window.location.origin + historyPath
-                    )
-                    navigate(path)
-                })
+                    );
+                    navigate(path);
+                });
                 if (error) {
-                    $("#err-header").load(pagesDir + "/_header.html")
+                    $("#err-header").load(pagesDir + "/_header.html");
                 }
-            })
+            });
         } else {
-            navigate("/_404.html", true)
+            navigate("/_404.html", true);
         }
-    })
-}
+    });
+};
 
 if (window.location.pathname == "/") {
-    navigate("/index.html")
+    navigate("/index.html");
 } else if (window.location.pathname.endsWith(".html")) {
-    navigate(window.location.pathname)
+    navigate(window.location.pathname);
 } else {
-    navigate(window.location.pathname + ".html")
+    navigate(window.location.pathname + ".html");
 }
 
 $(window).on("popstate", () => {
-    navigate(window.location.pathname)
-})
+    navigate(window.location.pathname);
+});
