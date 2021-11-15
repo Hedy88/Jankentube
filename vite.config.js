@@ -10,4 +10,4 @@ export default defineConfig({
         }),
         eslintPlugin(),
     ]
-} + (process.env.GP ? { server: { hmr: false } } : {}));
+});
