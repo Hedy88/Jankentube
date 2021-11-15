@@ -9,5 +9,5 @@ export default defineConfig({
             targets: ["defaults", "not IE 11"],
         }),
         eslintPlugin(),
-    ],
-});
+    ]
+} + (process.env.GP ? { server: { hmr: false } } : {}));
