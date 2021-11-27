@@ -1,2 +1,3 @@
-<h1>Welcome to <i>ur mom</i></h1>
-<p>this will be janky in <i>[BIG SHOT]</i> minutes</p>
+<a class="ad" href="https://sushub.billygoat891.tk">
+	<img src="/ads/bannerhome.png" alt="SUSHUB" />
+</a>

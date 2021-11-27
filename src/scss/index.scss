@@ -1,32 +1,79 @@
-@use "./core.scss";
-@use "./icons.scss";
+@use './core.scss';
+@use './icons.scss';
+
+body {
+	background-color: #eaeaea;
+	margin: 0 auto;
+	padding: 10px;
+	padding-bottom: 0;
+	max-width: 970px;
+}
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-family: Arial, sans-serif;
+	background: transparent;
+}
 
 header {
-    display: flex;
-    $lp: 10px;
+	display: flex;
+	$lp: 10px;
 
-    .logo {
-        margin: $lp;
-    }
+	.logo {
+		margin: $lp;
+		margin-bottom: 0;
+	}
 
-    .search-container {
-        width: 100%;
-        height: 32px;
-        $c: $lp + 3px;
-        padding: $c 5px $c 5px;
-    }
+	.search-container {
+		flex-grow: 2.4;
+		height: 32px;
+		$c: $lp + 3px;
+		padding: $c 5px $c 5px;
+
+		.tibox {
+			width: 100%;
+		}
+	}
+
+	.separator {
+		color: #ccc;
+	}
+
+	$magic: $lp * 2;
+	nav {
+		margin: $lp;
+		margin-top: $magic;
+		margin-bottom: 0;
+		white-space: nowrap;
+
+		a {
+			padding: 6px 10px;
+			font-size: 13px;
+			color: #333;
+		}
+	}
+	.right {
+		margin-top: $magic / 2;
+		text-align: right;
+		flex-grow: 1;
+	}
 }
 
-.error-page-container {
-    text-align: center;
-    width: 400px;
+main img {
+	max-width: 100%;
 }
 
-#err-header .tibox {
-    width: 75%;
-}
-
-.header-links {
-    display: flex;
-    font-size: 10px;
+.ad {
+	width: 100%;
+	img {
+		display: block;
+		margin: auto;
+	}
+	&:hover img, &:focus-visible img {
+		filter: grayscale(25%);
+	}
 }
