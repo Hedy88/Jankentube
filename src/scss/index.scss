@@ -1,8 +1,7 @@
 @use "./core.scss";
 @use "./icons.scss";
 
-#dy-header,
-#err-header {
+header {
     display: flex;
     $lp: 10px;
 
