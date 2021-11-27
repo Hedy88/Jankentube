@@ -1,3 +1,5 @@
-<a class="ad" href="https://sushub.billygoat891.tk">
-	<img src="/ads/bannerhome.png" alt="SUSHUB" />
-</a>
+<script>
+	import Ad from '../components/Ad.svelte';
+</script>
+
+<Ad href="https://sushub.billygoat891.tk" src="/ads/bannerhome.png" />

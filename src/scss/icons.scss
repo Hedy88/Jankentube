@@ -1,10 +1,10 @@
 span.i {
-    display: block;
-    background-repeat: no-repeat;
-    min-width: 14px;
-    min-height: 14px;
+	display: block;
+	background-repeat: no-repeat;
+	min-width: 14px;
+	min-height: 14px;
 
-    &.i-search {
-        background-image: url("/icons/search.png");
-    }
+	&.i-search {
+		background-image: url('/icons/search.png');
+	}
 }

@@ -1,6 +1,26 @@
 p,
+li,
 button {
-	font-size: 13px;
+	font-size: 12px;
+}
+li {
+	&::marker {
+		content: none;
+	}
+	&::before {
+		content: '•';
+		margin-right: 0.75em;
+	}
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-weight: 400;
+}
+.title {
+	font-size: 16px;
 }
 
 a {
@@ -27,13 +47,17 @@ button:focus {
 	text-shadow: 0 1px 0 white;
 	background-image: linear-gradient(to bottom, #fff 0, #e0e0e0 100%);
 	box-shadow: inset 0 0 1px white;
+	border-radius: 2px;
 	outline: 0;
 	font-weight: bold;
 	white-space: nowrap;
 	word-wrap: normal;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	vertical-align: middle;
 	cursor: pointer;
 	overflow: visible;
-	border-radius: 2px;
 
 	.i {
 		opacity: 0.6;
@@ -42,6 +66,17 @@ button:focus {
 	&:focus {
 		.i {
 			opacity: 1;
+		}
+	}
+
+	img {
+		width: 30px;
+	}
+	&.btn-img {
+		padding: 0 6px 0 2px;
+
+		img {
+			margin-right: 8px;
 		}
 	}
 
@@ -73,6 +108,25 @@ button:focus {
 	padding-left: $p;
 	padding-right: $p;
 }
+.btn-blue {
+	color: white;
+	background-color: #6891e7;
+	border-color: #0053a6 #0053a6 #000;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+	box-shadow: inset 0 1px 0 rgba(256, 256, 256, 0.35);
+	background-image: linear-gradient(to bottom, #4495e7 0, #0053a6 100%);
+
+	&:hover {
+		border-color: #002d59 #002d59 #000;
+		box-shadow: inset 0 1px 0 rgba(256, 256, 256, 0.35), 0 1px 3px rgba(0, 0, 0, 0.5);
+		background-image: linear-gradient(to bottom, #096bd2 0, #0053a6 100%);
+	}
+	&:active {
+		border-color: #000 #002d59 #002d59;
+		box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.35), 0 1px 0 #fff;
+		background-image: linear-gradient(to bottom, #014488 0, #175ea6 100%);
+	}
+}
 .btn-dark {
 	color: white;
 	background-color: #454545;
@@ -85,14 +139,9 @@ button:focus {
 		border-color: #111 #111 #000;
 		background-color: #333;
 		box-shadow: inset 0 1px 0 rgba(256, 256, 256, 0.1), 0 1px 3px rgba(0, 0, 0, 0.5);
-		background-image: linear-gradient(to bottom, #383838 0, #252525 100%);
 	}
 	&:focus {
-		background-color: #454545;
-		border-color: #151515 #151515 #000;
-		text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
 		box-shadow: inset 0 1px 0 rgba(256, 256, 256, 0.1);
-		background-image: linear-gradient(to bottom, #383838 0, #151515 100%);
 	}
 	&:active {
 		border-color: #666;
@@ -101,26 +150,23 @@ button:focus {
 }
 
 .textbox {
-	padding: 2px 6px;
-	margin: 0;
-	border: 0;
-	outline: none;
-	background: white;
-	font-size: 16px;
-	box-sizing: border-box;
-	border: 1px solid #ccc;
-	box-shadow: inset 0 1px 2px #eee;
-	transition: border-color 0.2s ease;
-
-	&:hover {
-		border: 1px solid #b9b9b9;
-		border-top-color: #a0a0a0;
-		box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.1);
-	}
+	width: 250px;
+	padding: 7px 10px;
+	margin-top: 0;
+	margin-bottom: 0;
+	background: #f6f6f6;
+	color: #666;
+	font-size: 13px;
+	border: 1px solid #b9b9b9;
+	border-top-color: #a4a4a4;
+	box-shadow: 0 1px 0 #fff, inset 0 1px 1px rgba(0, 0, 0, 0.17);
+	border-radius: 3px;
 
 	&:focus {
-		border: 1px solid #1c62b9;
-		outline: none;
+		border-color: #4496e7;
+		color: #444;
+		background: #fff;
+		outline: 0;
 	}
 }
 
@@ -128,13 +174,40 @@ button:focus {
 	display: flex;
 
 	.tibox {
+		padding: 2px 6px;
+		margin: 0;
+		border: 0;
 		border-top-left-radius: 3px;
 		border-bottom-left-radius: 3px;
+		outline: none;
+		background: white;
+		font-size: 16px;
+		box-sizing: border-box;
+		border: 1px solid #ccc;
+		box-shadow: inset 0 1px 2px #eee;
+		transition: border-color 0.2s ease;
+
+		&:hover {
+			border: 1px solid #b9b9b9;
+			border-top-color: #a0a0a0;
+			box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.1);
+		}
+
+		&:focus {
+			border: 1px solid #1c62b9;
+		}
 	}
 
 	.btn-ti {
 		border-left: 0;
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
+	}
+}
+
+.flogo {
+	opacity: 0.6;
+	&:hover {
+		opacity: 1;
 	}
 }

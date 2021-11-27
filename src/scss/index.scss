@@ -3,6 +3,7 @@
 
 body {
 	background-color: #eaeaea;
+	background-image: url('/background.png');
 	margin: 0 auto;
 	padding: 10px;
 	padding-bottom: 0;
@@ -21,17 +22,16 @@ body {
 
 header {
 	display: flex;
-	$lp: 10px;
+	margin-bottom: 10px;
 
 	.logo {
-		margin: $lp;
-		margin-bottom: 0;
+		margin-right: 10px;
 	}
 
 	.search-container {
-		flex-grow: 2.4;
+		flex-grow: 7;
 		height: 32px;
-		$c: $lp + 3px;
+		$c: 3px;
 		padding: $c 5px $c 5px;
 
 		.tibox {
@@ -43,11 +43,10 @@ header {
 		color: #ccc;
 	}
 
-	$magic: $lp * 2;
 	nav {
-		margin: $lp;
-		margin-top: $magic;
-		margin-bottom: 0;
+		padding: 0 10px;
+		line-height: 38px;
+
 		white-space: nowrap;
 
 		a {
@@ -57,8 +56,9 @@ header {
 		}
 	}
 	.right {
-		margin-top: $magic / 2;
-		text-align: right;
+		margin-top: 2px;
+		display: flex;
+		justify-content: flex-end;
 		flex-grow: 1;
 	}
 }
@@ -67,13 +67,6 @@ main img {
 	max-width: 100%;
 }
 
-.ad {
-	width: 100%;
-	img {
-		display: block;
-		margin: auto;
-	}
-	&:hover img, &:focus-visible img {
-		filter: grayscale(25%);
-	}
+footer .content {
+	margin-top: 10px;
 }
