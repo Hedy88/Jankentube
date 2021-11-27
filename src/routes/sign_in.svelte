@@ -20,7 +20,6 @@
 		<br />
 		<p>Sign up now to join the Jankentube community.</p>
 		<br />
-		<br />
 	</div>
 	<div class="right">
 		<form

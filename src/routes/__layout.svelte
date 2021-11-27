@@ -1,11 +1,12 @@
 <script>
 	import { goto } from '$app/navigation';
 	import '../scss/index.scss';
+	import Logo from '../components/Logo.svelte';
 	import Ruler from '../components/Ruler.svelte';
 </script>
 
 <header>
-	<a href="/"><img class="logo" src="favicon.png" alt="Jankentube logo" /></a>
+	<a href="/"><Logo /></a>
 	<div class="ti-container search-container">
 		<input type="text" class="tibox" />
 		<button class="btn btn-i btn-ti"><span class="i i-search" /></button>
@@ -34,8 +35,33 @@
 <footer>
 	<Ruler />
 	<div class="content">
-		<a href="/">
-			<img src="/logo.png" class="flogo" alt="Jankentube logo" />
-		</a>
+		<div class="logo-container">
+			<a href="/">
+				<Logo large />
+			</a>
+			<p>© 2021 GatoHopto, LLC</p>
+		</div>
+		<span class="divider" />
+		<div class="links">
+			<p class="first">
+				<a href="/about">About</a>
+				<a href="/press">Press & Blogs</a>
+				<a href="/t/copyright">Copyright</a>
+				<a href="/creators">Creators & Partners</a>
+				<a href="/t/advertising">Advertising</a>
+				<a href="/dev">Developers</a>
+			</p>
+			<p class="second">
+				<a href="/t/terms">Terms</a>
+				<a href="/t/privacy">Privacy</a>
+				<a href="/t/safety">Safety</a>
+				<a href="https://github.com/Hedy88/Jankentube/issues/new/choose">Report a bug</a>
+			</p>
+			<div class="selects">
+				<p>Language: <button class="btn btn-text">English</button></p>
+				<p>Location: <button class="btn btn-text">Worldwide</button></p>
+				<p>Safety: <button class="btn btn-text">Off</button></p>
+			</div>
+		</div>
 	</div>
 </footer>

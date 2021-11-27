@@ -67,6 +67,71 @@ main img {
 	max-width: 100%;
 }
 
-footer .content {
-	margin-top: 10px;
+footer {
+	margin-top: 15px;
+
+	.content {
+		margin-top: 10px;
+		padding-bottom: 10px;
+		color: #666;
+		$lh: 210px;
+
+		.logo-container {
+			text-align: center;
+			width: $lh;
+			position: relative;
+			float: left;
+			margin-top: 30px;
+
+			p {
+				font-size: 11px;
+			}
+			.logo {
+				opacity: 0.6;
+				&:hover {
+					opacity: 1;
+				}
+			}
+		}
+		.divider {
+			position: absolute;
+			margin-left: 15px;
+			background: no-repeat url('/footer-divider.png');
+			width: 13px;
+			height: 118px;
+		}
+		.links {
+			margin-left: $lh + 45px;
+			padding-top: 1.5em;
+
+			p {
+				font-weight: bold;
+			}
+			.first,
+			.second,
+			.selects {
+				a:not(:first-child),
+				p:not(:first-child) {
+					margin-left: 20px;
+				}
+			}
+			.second,
+			.selects {
+				margin-top: 12px;
+				font-size: 11px;
+			}
+			.selects {
+				display: flex;
+
+				p {
+					button {
+						margin-top: 5px;
+					}
+					button:not(:first-child) {
+						margin-left: 20px;
+					}
+				}
+			}
+		}
+	}
 }
