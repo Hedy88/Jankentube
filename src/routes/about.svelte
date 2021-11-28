@@ -1,5 +1,5 @@
 <script>
-    import Logo from "../components/Logo.svelte";
+	import Logo from '../components/Logo.svelte';
 </script>
 
 <h2>About Jankentube</h2>
