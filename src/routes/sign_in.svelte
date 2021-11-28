@@ -25,7 +25,7 @@
 		<form
 			on:submit={(e) => {
 				e.preventDefault();
-				const data = new FormData(e.target);
+				const data = new window.FormData(e.target);
 				alert('Your username is ' + data.get('username'));
 			}}
 		>
